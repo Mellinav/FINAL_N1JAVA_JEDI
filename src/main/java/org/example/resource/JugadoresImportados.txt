@@ -1,0 +1,1 @@
+1,Martin,Villa,1.70,delantero,30,50,20,true
