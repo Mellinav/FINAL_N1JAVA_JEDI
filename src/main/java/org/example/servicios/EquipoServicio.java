@@ -45,15 +45,40 @@ public class EquipoServicio {
      public void buscarEquipoPorNombre (List<Equipo> equipos){
         System.out.println("Ingrese el nombre del Equipo a buscar: ");
         String nombreDelEquipo = scanner.nextLine();
+         boolean equipoEncontrado = false;
          for (Equipo equipo :equipos){
              if(equipo.getNombreDelEquipo().equalsIgnoreCase(nombreDelEquipo)){
                  System.out.println("Nombre del equipo: "+ equipo.getNombreDelEquipo());
                  System.out.println("Nombre del entrenador: "+ equipo.getEntrenador().getNombre());
                  System.out.println("La lista de jugadores es:  "+equipo.getListaDeJugadores());
+                 equipoEncontrado = true;
+                 break;
              }
+             }
+         if(!equipoEncontrado){
+             System.out.println("No se encontro el equipo");
          }
-         System.out.println("No se encontro el equipo");
+       }
+
+    public void eliminarEquipoPorNombre(List<Equipo> equipos){
+        System.out.println("Ingrese el Nombre del equipo que desea eliminar:  ");
+        String eliminarEquipoPorNombre = scanner.nextLine();
+        Equipo equipo = null;
+        for(Equipo equipoEliminar : equipos){
+            if (equipo.getNombreDelEquipo().equalsIgnoreCase(eliminarEquipoPorNombre)){
+                equipo = equipoEliminar;
+                break;
+            }
+        }
+        if (equipo!= null){
+            equipos.remove(equipo);
+            System.out.println("Equipo ELIMINADO!");
+        } else {
+            System.out.println("No se encontro ningun equipo con ese nombre");
         }
     }
+
+}
+
 
 

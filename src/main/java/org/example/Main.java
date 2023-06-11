@@ -9,13 +9,8 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<Equipo>equipos=new ArrayList<>();
         AppServicio appServicio=new AppServicio();
-        appServicio.cargarEquipo(equipos);
-
-        for (Equipo equipo: equipos ){
-            System.out.println(equipo);
-        }
+        appServicio.menu();
 
 
     }
