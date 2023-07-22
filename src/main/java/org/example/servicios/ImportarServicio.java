@@ -2,6 +2,7 @@ package org.example.servicios;
 
 import org.example.domain.Equipo;
 import org.example.domain.Jugador;
+import org.example.servicios.impl.EquipoServicioImpl;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,7 +12,7 @@ import java.util.Scanner;
 
 public class ImportarServicio {
     Scanner scanner=new Scanner(System.in);
-    EquipoServicio equipoServicio= new EquipoServicio();
+    EquipoServicioImpl equipoServicio= new EquipoServicioImpl();
     public void importarJugadoresDesdeArchivo(List<Equipo> equipos) {
         System.out.println("Nombre del equipo:  ");
         String nombreEquipo=scanner.nextLine();
@@ -21,7 +22,7 @@ public class ImportarServicio {
                 equipoEncontrado=equipo;
             }
         }
-        try (BufferedReader br = new BufferedReader(new FileReader(".FINAL_N1JAVA_JEDI"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/main/java/org/example/resource/JugadoresImportados.txt"))) {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] datosJugador = linea.split(",");
